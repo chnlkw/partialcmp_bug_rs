@@ -1,4 +1,4 @@
-use tokio::*; // comment this line to make it compile ok
+// use tokio::*; // comment this line to make it compile ok
 
 fn main() {
     println!("Hello, world!");
@@ -12,6 +12,10 @@ fn main() {
     println!("{:?}", &a.ge(&b)); // ok
 
     // below compile ok when not `use tokio::*`;
-    println!("{:?}", a.ge(&&b)); // when `use tokio::*`, got compile error : the trait `PartialOrd<&String>` is not implemented for `String`
-    println!("{:?}", &a.ge(&&b)); // when `use tokio::*`, got compile error : the trait `PartialOrd<&String>` is not implemented for `String`
+    // when `use tokio::*`, got compile error : the trait `PartialOrd<&String>` is not implemented for `String`
+    println!("{:?}", a.ge(&&b));
+    println!("{:?}", &a.ge(&&b));
+    let rb = &b;
+    println!("{:?}", a.ge(&rb));
+    println!("{:?}", &a.ge(&rb));
 }
