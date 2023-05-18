@@ -1,4 +1,4 @@
-// use tokio::*; // comment this line to make it compile ok
+use tokio::*; // comment this line to make it compile ok
 
 fn main() {
     println!("Hello, world!");
